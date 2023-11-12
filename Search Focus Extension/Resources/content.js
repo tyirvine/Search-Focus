@@ -1,20 +1,25 @@
 /* ------------------------------- Entry Point ------------------------------ */
 
-browser.runtime
-	.sendMessage({
-		page: 'check',
-	})
-	.then((response) => {
-		handleResponse(response);
-	});
+browser.runtime.sendMessage({ message: 'loaded' }).then(() => {
+	update();
+});
 
 /* ---------------------------------- State --------------------------------- */
 
 class State {
+	#isPaused = false;
 	#currentLinkIndex = 0;
 	#previousLinkIndex = -1;
 	#currentLink;
 	#allLinks;
+
+	getIsPaused() {
+		return this.#isPaused;
+	}
+
+	setIsPaused(bool) {
+		this.#isPaused = bool;
+	}
 
 	getCurrentLinkIndex() {
 		return this.#currentLinkIndex;
@@ -56,11 +61,8 @@ class State {
 
 /* -------------------------------- Handlers -------------------------------- */
 
-function handleResponse(response) {
-	// Here we receive the response to the message we sent.
-	console.log('Response received:', response);
-
-	// Here we store the current selected link index.
+function update() {
+	// Create a new state object.
 	let state = new State();
 
 	// Grab all the links on the page and apply styles to them.
@@ -71,10 +73,14 @@ function handleResponse(response) {
 
 	// Update the links when there's a key press.
 	handleKeyPress(state);
+
+	// Handle focus changes.
+	handlePageFocusChange(state);
+	handleInputFocusChange(state);
 }
 
 function handleResize(state) {
-	const resizeObserver = new ResizeObserver((entries) => {
+	const resizeObserver = new ResizeObserver(() => {
 		updateLinks(state);
 	});
 
@@ -88,15 +94,13 @@ function handleKeyPress(state) {
 			// Route the key press.
 			switch (event.key) {
 				// Down navigation.
-				case 'ArrowDown':
-					event.preventDefault();
-					state.selectNextLinkIndex();
+				case 'j':
+					navigate('down', event, state);
 					break;
 
 				// Up navigation.
-				case 'ArrowUp':
-					event.preventDefault();
-					state.selectPreviousLinkIndex();
+				case 'k':
+					navigate('up', event, state);
 					break;
 
 				// Select the link.
@@ -104,25 +108,79 @@ function handleKeyPress(state) {
 					state.clickCurrentLink();
 					break;
 
+				// Remove all highlights.
+				case 'f':
+					pauseExtension(state);
+					break;
+
+				// Bring the highlights back.
+				case 'Escape':
+					resumeExtension(state);
+					break;
+
 				default:
 					break;
 			}
-
-			// Update the links.
-			updateLinks(state);
 		},
 		true
 	);
 }
 
+function handlePageFocusChange(state) {
+	document.addEventListener('visibilitychange', () => {
+		resumeExtension(state);
+	});
+}
+
+function handleInputFocusChange(state) {
+	document.addEventListener('focusin', (event) => {
+		pauseExtension(state);
+	});
+	document.addEventListener('focusout', (event) => {
+		resumeExtension(state);
+	});
+}
+
 /* ------------------------------ Sub-routines ------------------------------ */
+
+function navigate(direction, event, state) {
+	// If the extension is paused, don't do anything.
+	if (state.getIsPaused()) {
+		return;
+	}
+
+	// Prevent the default behavior of the key press.
+	event.preventDefault();
+
+	// Route the direction.
+	if (direction === 'up') {
+		state.selectPreviousLinkIndex();
+	} else if (direction === 'down') {
+		state.selectNextLinkIndex();
+	} else {
+		console.error('Invalid direction!');
+	}
+
+	event.stopPropagation();
+
+	updateLinks(state);
+}
+
+function pauseExtension(state) {
+	state.setIsPaused(true);
+	clearLinkHighlights();
+}
+
+function resumeExtension(state) {
+	state.setIsPaused(false);
+	updateLinks(state);
+}
 
 function updateLinks(state) {
 	let links = grabLinks();
-
-	// Add the link styling to the selected link and remove the link styling from any other links.
 	links.forEach((link, index) => {
 		// If this isn't the current link continue.
+		// Remove highlighting if any from the link.
 		if (index !== state.getCurrentLinkIndex()) {
 			link.classList.remove('linkSelector');
 			return;
@@ -137,9 +195,15 @@ function updateLinks(state) {
 
 		// Scroll the current link into view if it's a new link.
 		if (state.isNewLinkSelected(index)) {
-			console.log('Scrolling into view:', link);
 			link.scrollIntoView({ behavior: 'smooth', block: 'center' });
 		}
+	});
+}
+
+function clearLinkHighlights() {
+	let links = grabLinks();
+	links.forEach((link) => {
+		link.classList.remove('linkSelector');
 	});
 }
 
