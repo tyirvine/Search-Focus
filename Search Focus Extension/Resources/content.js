@@ -108,6 +108,18 @@ function handleKeyPress(state) {
 					navigate('up', event, state);
 					break;
 
+				default:
+					break;
+			}
+		},
+		true
+	);
+
+	addEventListener(
+		'keyup',
+		(event) => {
+			// Route the key press.
+			switch (event.key) {
 				// Select the link.
 				case 'Enter':
 					state.clickCurrentLink();
@@ -118,8 +130,12 @@ function handleKeyPress(state) {
 					pauseExtension(state);
 					break;
 
-				// Bring the highlights back.
+				// Toggle the extension with a shift modifier. Otherwise, resume.
 				case 'Escape':
+					if (event.shiftKey) {
+						toggleExtension(state);
+						break;
+					}
 					resumeExtension(state);
 					break;
 
@@ -208,6 +224,14 @@ function pauseExtension(state) {
 function resumeExtension(state) {
 	state.setIsPaused(false);
 	updateLinks(state, false);
+}
+
+function toggleExtension(state) {
+	if (state.getIsPaused()) {
+		resumeExtension(state);
+	} else {
+		pauseExtension(state);
+	}
 }
 
 function updateLinks(state, scroll = true) {
