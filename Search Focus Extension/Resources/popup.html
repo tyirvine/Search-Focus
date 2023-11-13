@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="popup.css">
-    <script type="module" src="popup.js"></script>
-</head>
-<body>
-    <strong>Hello World!</strong>
-</body>
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="popup.css">
+        <script type="module" src="popup.js"></script>
+    </head>
+
+    <body>
+
+        <!-- Name of extension -->
+        <h1 id="title">Search Focus</h1>
+
+        <!-- Setting to pause the extension -->
+        <button id="setting-pause-resume-button"></button>
+
+        <!-- Setting to switch from ↓/↑ to j/k -->
+        <div class="setting-label-input-container">
+            <label for="setting-navigation-style-toggle">Switch from ↓/↑ to j/k.</label>
+            <select id="setting-navigation-style-toggle">
+                <option value="arrows">↓/↑</option>
+                <option value="jk">j/k</option>
+            </select>
+        </div>
+
+        <!-- List out shortcuts -->
+        <p>⎋ Escape + Shift will toggle between paused and resumed.</p>
+
+    </body>
+
 </html>

@@ -1,11 +1,18 @@
 /* ------------------------------- Entry Point ------------------------------ */
+var settings;
 
 // Sends a message to background.js to let it know that the content script has loaded.
 browser.runtime.sendMessage({ message: 'loaded' });
 
 // Receives a message from background.js to signal that the extension has been updated.
-browser.runtime.onMessage.addListener(() => {
-	update();
+browser.runtime.onMessage.addListener(async (received) => {
+	// Updates the settings from the local storage.
+	settings = (await browser.storage.local.get('settings')).settings;
+
+	// Updates the links.
+	if (received.message === 'loaded') {
+		update();
+	}
 });
 
 /* ---------------------------------- State --------------------------------- */
@@ -18,11 +25,44 @@ class State {
 	#allLinks;
 
 	getIsPaused() {
+		if (settings.isDisabled) {
+			return true;
+		}
 		return this.#isPaused;
 	}
 
 	setIsPaused(bool) {
+		if (settings.isDisabled) {
+			this.#isPaused = true;
+			return;
+		}
 		this.#isPaused = bool;
+	}
+
+	getUpKey() {
+		switch (settings.navStyle) {
+			case 'arrows':
+				return 'ArrowUp';
+
+			case 'jk':
+				return 'k';
+
+			default:
+				break;
+		}
+	}
+
+	getDownKey() {
+		switch (settings.navStyle) {
+			case 'arrows':
+				return 'ArrowDown';
+
+			case 'jk':
+				return 'j';
+
+			default:
+				break;
+		}
 	}
 
 	getCurrentLinkIndex() {
@@ -99,12 +139,12 @@ function handleKeyPress(state) {
 			// Route the key press.
 			switch (event.key) {
 				// Down navigation.
-				case 'j':
+				case state.getDownKey():
 					navigate('down', event, state);
 					break;
 
 				// Up navigation.
-				case 'k':
+				case state.getUpKey():
 					navigate('up', event, state);
 					break;
 

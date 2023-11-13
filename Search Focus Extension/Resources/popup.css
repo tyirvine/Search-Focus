@@ -1,15 +1,66 @@
-:root {
-    color-scheme: light dark;
+/* ---------------------------- Universal Styles ---------------------------- */
+
+* {
+	color-scheme: light dark;
+	font-family: system-ui;
+	font-size: 12px;
 }
 
 body {
-    width: 100px;
-    padding: 10px;
+	width: 200px;
+	padding: 10px 15px;
+	display: flex;
+	flex-direction: column;
+	justify-content: stretch;
+	row-gap: 15px;
+}
 
-    font-family: system-ui;
-    text-align: center;
+h1 {
+	font-size: 18px;
+	margin: 0px 0px;
+}
+
+p {
+	opacity: 0.5;
+	margin: 0px 0px;
+}
+
+label {
+	opacity: 0.8;
 }
 
 @media (prefers-color-scheme: dark) {
-    /* Dark Mode styles go here. */
+	/* Dark Mode styles go here. */
+}
+
+/* ------------------------------ Input Styles ------------------------------ */
+
+button {
+	font-size: 13px;
+	font-weight: 500;
+	color: transparent;
+	text-shadow: 0 0 0 white;
+	padding: 10px;
+	border-radius: 6px;
+	border: 1px solid rgba(42, 108, 169, 0.675);
+	background: linear-gradient(rgb(23, 144, 230), rgb(25, 122, 226));
+	box-shadow: 0px 0px 3px rgba(10, 65, 107, 0.421);
+	transition: 0.2s;
+}
+
+button:hover {
+	opacity: 0.95;
+}
+
+select {
+	padding: 10px;
+}
+
+/* ---------------------------- Main Page Styles ---------------------------- */
+
+.setting-label-input-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
 }
