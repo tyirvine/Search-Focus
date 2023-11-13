@@ -1,13 +1,17 @@
 /* ------------------------------- Entry Point ------------------------------ */
 
-browser.runtime.sendMessage({ message: 'loaded' }).then(() => {
+// Sends a message to background.js to let it know that the content script has loaded.
+browser.runtime.sendMessage({ message: 'loaded' });
+
+// Receives a message from background.js to signal that the extension has been updated.
+browser.runtime.onMessage.addListener(() => {
 	update();
 });
 
 /* ---------------------------------- State --------------------------------- */
 
 class State {
-	#isPaused = false;
+	#isPaused = true;
 	#currentLinkIndex = 0;
 	#previousLinkIndex = -1;
 	#currentLink;
@@ -65,8 +69,10 @@ function update() {
 	// Create a new state object.
 	let state = new State();
 
-	// Grab all the links on the page and apply styles to them.
-	updateLinks(state);
+	// Handle focus changes.
+	handleDocumentFocusChange(state);
+	handlePageFocusChange(state);
+	handleInputFocusChange(state);
 
 	// Update the links if the page resizes.
 	handleResize(state);
@@ -74,9 +80,8 @@ function update() {
 	// Update the links when there's a key press.
 	handleKeyPress(state);
 
-	// Handle focus changes.
-	handlePageFocusChange(state);
-	handleInputFocusChange(state);
+	// Grab all the links on the page and apply styles to them.
+	updateLinks(state, false);
 }
 
 function handleResize(state) {
@@ -126,12 +131,14 @@ function handleKeyPress(state) {
 	);
 }
 
+// Resumes the extension if the page is focused.
 function handlePageFocusChange(state) {
 	document.addEventListener('visibilitychange', () => {
 		resumeExtension(state);
 	});
 }
 
+// Pauses and resumes the extension when an input changes focus.
 function handleInputFocusChange(state) {
 	document.addEventListener('focusin', (event) => {
 		pauseExtension(state);
@@ -141,7 +148,34 @@ function handleInputFocusChange(state) {
 	});
 }
 
+function handleDocumentFocusChange(state) {
+	// Captures the previous interval's document focus.
+	let previousDocumentFocus;
+
+	setInterval(() => {
+		// Capture new focus changes if they're new.
+		if (previousDocumentFocus === document.hasFocus()) {
+			return;
+		} else {
+			previousDocumentFocus = document.hasFocus();
+		}
+
+		// React to focus changes.
+		if (document.hasFocus()) {
+			resumeExtension(state);
+		} else {
+			pauseExtension(state);
+		}
+	}, 50);
+}
+
 /* ------------------------------ Sub-routines ------------------------------ */
+
+function select(state) {
+	if (!state.getIsPaused()) {
+		state.clickCurrentLink();
+	}
+}
 
 function navigate(direction, event, state) {
 	// If the extension is paused, don't do anything.
@@ -173,10 +207,16 @@ function pauseExtension(state) {
 
 function resumeExtension(state) {
 	state.setIsPaused(false);
-	updateLinks(state);
+	updateLinks(state, false);
 }
 
-function updateLinks(state) {
+function updateLinks(state, scroll = true) {
+	// If the extension is paused, don't do anything.
+	if (state.getIsPaused()) {
+		return;
+	}
+
+	// Run the update on the links.
 	let links = grabLinks();
 	links.forEach((link, index) => {
 		// If this isn't the current link continue.
@@ -194,7 +234,7 @@ function updateLinks(state) {
 		state.setAllLinks(links);
 
 		// Scroll the current link into view if it's a new link.
-		if (state.isNewLinkSelected(index)) {
+		if (state.isNewLinkSelected(index) && scroll) {
 			link.scrollIntoView({ behavior: 'smooth', block: 'center' });
 		}
 	});
