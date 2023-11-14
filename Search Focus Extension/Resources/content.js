@@ -204,20 +204,35 @@ function handleInputFocusChange(state) {
 	});
 }
 
+// This handles changes in focus to the webpage itself.
+// For example, if the browser search bar is activated, this will detect a loss of focus of the page.
+// Causing the extension to be paused.
 function handleDocumentFocusChange(state) {
 	// Captures the previous interval's document focus.
 	let previousDocumentFocus;
 
 	setInterval(() => {
-		// Capture new focus changes if they're new.
+		// Only capture focus changes if they're new.
 		if (previousDocumentFocus === document.hasFocus()) {
 			return;
 		} else {
 			previousDocumentFocus = document.hasFocus();
 		}
 
-		// React to focus changes.
-		if (document.hasFocus()) {
+		// Check to make sure no text inputs are focused.
+		let textInputs = document.querySelectorAll('textarea, input');
+		let doesInputHaveFocus = false;
+
+		for (let i = 0; i < textInputs.length; i++) {
+			let input = textInputs[i];
+			if (document.activeElement === input) {
+				doesInputHaveFocus = true;
+				break;
+			}
+		}
+
+		// We only resume if the webpage has focus and if no text inputs are focused.
+		if (document.hasFocus() && !doesInputHaveFocus) {
 			resumeExtension(state);
 		} else {
 			pauseExtension(state);
