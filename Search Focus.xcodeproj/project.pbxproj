@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9A0B62F72B001233008D6D1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A0B62F62B001233008D6D1B /* Assets.xcassets */; };
-		9A0B63032B001233008D6D1B /* Search_FocusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0B63022B001233008D6D1B /* Search_FocusTests.swift */; };
-		9A0B630D2B001233008D6D1B /* Search_FocusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0B630C2B001233008D6D1B /* Search_FocusUITests.swift */; };
-		9A0B630F2B001233008D6D1B /* Search_FocusUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0B630E2B001233008D6D1B /* Search_FocusUITestsLaunchTests.swift */; };
 		9A0B63152B001233008D6D1B /* Search Focus Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9A0B63142B001233008D6D1B /* Search Focus Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9A0B631A2B001233008D6D1B /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0B63192B001233008D6D1B /* SafariWebExtensionHandler.swift */; };
 		9A0B631D2B001233008D6D1B /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 9A0B631C2B001233008D6D1B /* _locales */; };
@@ -24,6 +21,9 @@
 		9AA1B6C42B0A9CE400A300AF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA1B6C32B0A9CE400A300AF /* MainView.swift */; };
 		9AA1B6C62B0AA48600A300AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA1B6C52B0AA48600A300AF /* AppDelegate.swift */; };
 		9AA1B6CE2B0AB54A00A300AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AA1B6CD2B0AB54A00A300AF /* Main.storyboard */; };
+		9AA1B6D02B0AC6BA00A300AF /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA1B6CF2B0AC6BA00A300AF /* AboutView.swift */; };
+		9AA1B6D22B0AC8A700A300AF /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA1B6D12B0AC8A700A300AF /* Components.swift */; };
+		9AA1B6D42B0AC8C400A300AF /* LinkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA1B6D32B0AC8C400A300AF /* LinkHelper.swift */; };
 		9AB27E102B002FA00085B01B /* content.css in Resources */ = {isa = PBXBuildFile; fileRef = 9AB27E0F2B002FA00085B01B /* content.css */; };
 /* End PBXBuildFile section */
 
@@ -71,10 +71,7 @@
 		9A0B62F82B001233008D6D1B /* Search_Focus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Search_Focus.entitlements; sourceTree = "<group>"; };
 		9A0B62F92B001233008D6D1B /* Search Focus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Search Focus.entitlements"; sourceTree = "<group>"; };
 		9A0B62FE2B001233008D6D1B /* Search FocusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Search FocusTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A0B63022B001233008D6D1B /* Search_FocusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search_FocusTests.swift; sourceTree = "<group>"; };
 		9A0B63082B001233008D6D1B /* Search FocusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Search FocusUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A0B630C2B001233008D6D1B /* Search_FocusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search_FocusUITests.swift; sourceTree = "<group>"; };
-		9A0B630E2B001233008D6D1B /* Search_FocusUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search_FocusUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9A0B63142B001233008D6D1B /* Search Focus Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Search Focus Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A0B63192B001233008D6D1B /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
 		9A0B631C2B001233008D6D1B /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _locales; sourceTree = "<group>"; };
@@ -90,6 +87,9 @@
 		9AA1B6C32B0A9CE400A300AF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		9AA1B6C52B0AA48600A300AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AA1B6CD2B0AB54A00A300AF /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		9AA1B6CF2B0AC6BA00A300AF /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		9AA1B6D12B0AC8A700A300AF /* Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		9AA1B6D32B0AC8C400A300AF /* LinkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkHelper.swift; sourceTree = "<group>"; };
 		9AB27E0F2B002FA00085B01B /* content.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = content.css; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,8 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				9A0B62E42B001232008D6D1B /* Search Focus */,
-				9A0B63012B001233008D6D1B /* Search FocusTests */,
-				9A0B630B2B001233008D6D1B /* Search FocusUITests */,
 				9A0B63182B001233008D6D1B /* Search Focus Extension */,
 				9A0B62E32B001232008D6D1B /* Products */,
 			);
@@ -150,7 +148,10 @@
 		9A0B62E42B001232008D6D1B /* Search Focus */ = {
 			isa = PBXGroup;
 			children = (
+				9AA1B6D32B0AC8C400A300AF /* LinkHelper.swift */,
+				9AA1B6D12B0AC8A700A300AF /* Components.swift */,
 				9AA1B6C32B0A9CE400A300AF /* MainView.swift */,
+				9AA1B6CF2B0AC6BA00A300AF /* AboutView.swift */,
 				9AA1B6C52B0AA48600A300AF /* AppDelegate.swift */,
 				9A0B62F62B001233008D6D1B /* Assets.xcassets */,
 				9A0B62F82B001233008D6D1B /* Search_Focus.entitlements */,
@@ -158,23 +159,6 @@
 				9AA1B6CD2B0AB54A00A300AF /* Main.storyboard */,
 			);
 			path = "Search Focus";
-			sourceTree = "<group>";
-		};
-		9A0B63012B001233008D6D1B /* Search FocusTests */ = {
-			isa = PBXGroup;
-			children = (
-				9A0B63022B001233008D6D1B /* Search_FocusTests.swift */,
-			);
-			path = "Search FocusTests";
-			sourceTree = "<group>";
-		};
-		9A0B630B2B001233008D6D1B /* Search FocusUITests */ = {
-			isa = PBXGroup;
-			children = (
-				9A0B630C2B001233008D6D1B /* Search_FocusUITests.swift */,
-				9A0B630E2B001233008D6D1B /* Search_FocusUITestsLaunchTests.swift */,
-			);
-			path = "Search FocusUITests";
 			sourceTree = "<group>";
 		};
 		9A0B63182B001233008D6D1B /* Search Focus Extension */ = {
@@ -374,6 +358,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AA1B6C42B0A9CE400A300AF /* MainView.swift in Sources */,
+				9AA1B6D22B0AC8A700A300AF /* Components.swift in Sources */,
+				9AA1B6D42B0AC8C400A300AF /* LinkHelper.swift in Sources */,
+				9AA1B6D02B0AC6BA00A300AF /* AboutView.swift in Sources */,
 				9AA1B6C62B0AA48600A300AF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,7 +369,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A0B63032B001233008D6D1B /* Search_FocusTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,8 +376,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A0B630D2B001233008D6D1B /* Search_FocusUITests.swift in Sources */,
-				9A0B630F2B001233008D6D1B /* Search_FocusUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,7 +611,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -664,7 +648,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,

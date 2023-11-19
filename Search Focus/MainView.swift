@@ -9,24 +9,18 @@ import SwiftUI
 
 struct MainView: View {
 	var body: some View {
-		VStack {
-			Spacer()
-			HStack {
-				Spacer()
-				Text("")
-				Spacer()
-			}
-			Spacer()
-		}
-		.background(FrostedMaterial().ignoresSafeArea())
-		.frame(width: 200, height: 200, alignment: .center)
+		AboutView()
+			.background(Material(material: .sidebar).ignoresSafeArea())
 	}
 }
 
-struct FrostedMaterial: NSViewRepresentable {
+struct Material: NSViewRepresentable {
+
+	let material: NSVisualEffectView.Material
+
 	func makeNSView(context: Context) -> NSVisualEffectView {
 		let effectView = NSVisualEffectView()
-		effectView.material = .popover
+		effectView.material = material
 		effectView.state = .active
 		return effectView
 	}

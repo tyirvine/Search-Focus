@@ -11,10 +11,12 @@ import SwiftUI
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
 
+	var window: NSWindow!
+
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 
 		// Create main window.
-		let window = NSWindow(
+		window = NSWindow(
 			contentRect: NSRect(x: 0, y: 0, width: 500, height: 500),
 			styleMask: [.closable, .unifiedTitleAndToolbar, .fullSizeContentView, .titled],
 			backing: .buffered,
@@ -37,5 +39,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		// Open the window.
 		window.center()
 		window.makeKeyAndOrderFront(nil)
+	}
+
+	func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+		return true
+	}
+
+	func applicationWillTerminate(_ aNotification: Notification) {}
+}
+
+extension AppDelegate {
+
+	/// Returns the version of the app.
+	static func version() -> String? {
+
+		guard let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String else {
+			return nil
+		}
+
+		return version
 	}
 }
