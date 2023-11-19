@@ -11,7 +11,7 @@ browser.runtime.onMessage.addListener(async (received) => {
 
 	// Updates the links.
 	if (received.message === 'loaded') {
-		update();
+		setup();
 	}
 });
 
@@ -69,6 +69,10 @@ class State {
 		return this.#currentLinkIndex;
 	}
 
+	getCurrentLink() {
+		return this.#currentLink;
+	}
+
 	setCurrentLink(link) {
 		this.#currentLink = link;
 	}
@@ -105,7 +109,7 @@ class State {
 
 /* -------------------------------- Handlers -------------------------------- */
 
-function update() {
+function setup() {
 	// Create a new state object.
 	let state = new State();
 
@@ -208,36 +212,37 @@ function handleInputFocusChange(state) {
 // For example, if the browser search bar is activated, this will detect a loss of focus of the page.
 // Causing the extension to be paused.
 function handleDocumentFocusChange(state) {
-	// Captures the previous interval's document focus.
-	let previousDocumentFocus;
+	detectDocumentFocusChange(state);
 
-	setInterval(() => {
-		// Only capture focus changes if they're new.
-		if (previousDocumentFocus === document.hasFocus()) {
-			return;
-		} else {
-			previousDocumentFocus = document.hasFocus();
+	window.addEventListener('focus', function () {
+		detectDocumentFocusChange(state);
+	});
+
+	window.addEventListener('blur', function () {
+		detectDocumentFocusChange(state);
+	});
+}
+
+function detectDocumentFocusChange(state) {
+	// Only capture focus changes if they're new.
+	// Check to make sure no text inputs are focused.
+	let textInputs = document.querySelectorAll('textarea, input');
+	let doesInputHaveFocus = false;
+
+	for (let i = 0; i < textInputs.length; i++) {
+		let input = textInputs[i];
+		if (document.activeElement === input) {
+			doesInputHaveFocus = true;
+			break;
 		}
+	}
 
-		// Check to make sure no text inputs are focused.
-		let textInputs = document.querySelectorAll('textarea, input');
-		let doesInputHaveFocus = false;
-
-		for (let i = 0; i < textInputs.length; i++) {
-			let input = textInputs[i];
-			if (document.activeElement === input) {
-				doesInputHaveFocus = true;
-				break;
-			}
-		}
-
-		// We only resume if the webpage has focus and if no text inputs are focused.
-		if (document.hasFocus() && !doesInputHaveFocus) {
-			resumeExtension(state);
-		} else {
-			pauseExtension(state);
-		}
-	}, 50);
+	// We only resume if the webpage has focus and if no text inputs are focused.
+	if (document.hasFocus() && !doesInputHaveFocus) {
+		resumeExtension(state);
+	} else {
+		pauseExtension(state);
+	}
 }
 
 /* ------------------------------ Sub-routines ------------------------------ */
@@ -250,7 +255,8 @@ function select(state) {
 
 function navigate(direction, event, state) {
 	// If the extension is paused, don't do anything.
-	if (state.getIsPaused()) {
+	// As well, don't do anything if there's no link selected.
+	if (state.getIsPaused() || !state.getCurrentLink()) {
 		return;
 	}
 
@@ -262,8 +268,6 @@ function navigate(direction, event, state) {
 		state.selectPreviousLinkIndex();
 	} else if (direction === 'down') {
 		state.selectNextLinkIndex();
-	} else {
-		console.error('Invalid direction!');
 	}
 
 	event.stopPropagation();

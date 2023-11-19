@@ -11,7 +11,7 @@ window.onload = async () => {
 document.getElementById('setting-pause-resume-button').addEventListener('click', async (event) => {
 	let settings = await getSettings();
 	settings.isDisabled = !settings.isDisabled;
-	update(settings);
+	setup(settings);
 });
 
 // Listen for the navigation style toggle change.
@@ -19,11 +19,11 @@ document.getElementById('setting-navigation-style-toggle').addEventListener('cha
 	let navStyleToggle = document.getElementById('setting-navigation-style-toggle');
 	let settings = await getSettings();
 	settings.navStyle = navStyleToggle.value;
-	update(settings);
+	setup(settings);
 });
 
 // Updates the popup state and relays the changes to the background script.
-function update(settings) {
+function setup(settings) {
 	updateSettings(settings);
 	updateInterface(settings);
 	browser.runtime.sendMessage({ message: 'settings' });
