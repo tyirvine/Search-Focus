@@ -28,20 +28,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9A0B62FF2B001233008D6D1B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9A0B62DA2B001232008D6D1B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9A0B62E12B001232008D6D1B;
-			remoteInfo = "Search Focus";
-		};
-		9A0B63092B001233008D6D1B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9A0B62DA2B001232008D6D1B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9A0B62E12B001232008D6D1B;
-			remoteInfo = "Search Focus";
-		};
 		9A0B63162B001233008D6D1B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9A0B62DA2B001232008D6D1B /* Project object */;
@@ -70,8 +56,6 @@
 		9A0B62F62B001233008D6D1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A0B62F82B001233008D6D1B /* Search_Focus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Search_Focus.entitlements; sourceTree = "<group>"; };
 		9A0B62F92B001233008D6D1B /* Search Focus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Search Focus.entitlements"; sourceTree = "<group>"; };
-		9A0B62FE2B001233008D6D1B /* Search FocusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Search FocusTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A0B63082B001233008D6D1B /* Search FocusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Search FocusUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A0B63142B001233008D6D1B /* Search Focus Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Search Focus Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A0B63192B001233008D6D1B /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
 		9A0B631C2B001233008D6D1B /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _locales; sourceTree = "<group>"; };
@@ -101,20 +85,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9A0B62FB2B001233008D6D1B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9A0B63052B001233008D6D1B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9A0B63112B001233008D6D1B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -138,8 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				9A0B62E22B001232008D6D1B /* Search Focus.app */,
-				9A0B62FE2B001233008D6D1B /* Search FocusTests.xctest */,
-				9A0B63082B001233008D6D1B /* Search FocusUITests.xctest */,
 				9A0B63142B001233008D6D1B /* Search Focus Extension.appex */,
 			);
 			name = Products;
@@ -210,42 +178,6 @@
 			productReference = 9A0B62E22B001232008D6D1B /* Search Focus.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9A0B62FD2B001233008D6D1B /* Search FocusTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9A0B63372B001233008D6D1B /* Build configuration list for PBXNativeTarget "Search FocusTests" */;
-			buildPhases = (
-				9A0B62FA2B001233008D6D1B /* Sources */,
-				9A0B62FB2B001233008D6D1B /* Frameworks */,
-				9A0B62FC2B001233008D6D1B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9A0B63002B001233008D6D1B /* PBXTargetDependency */,
-			);
-			name = "Search FocusTests";
-			productName = "Search FocusTests";
-			productReference = 9A0B62FE2B001233008D6D1B /* Search FocusTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		9A0B63072B001233008D6D1B /* Search FocusUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9A0B633A2B001233008D6D1B /* Build configuration list for PBXNativeTarget "Search FocusUITests" */;
-			buildPhases = (
-				9A0B63042B001233008D6D1B /* Sources */,
-				9A0B63052B001233008D6D1B /* Frameworks */,
-				9A0B63062B001233008D6D1B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9A0B630A2B001233008D6D1B /* PBXTargetDependency */,
-			);
-			name = "Search FocusUITests";
-			productName = "Search FocusUITests";
-			productReference = 9A0B63082B001233008D6D1B /* Search FocusUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		9A0B63132B001233008D6D1B /* Search Focus Extension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A0B63302B001233008D6D1B /* Build configuration list for PBXNativeTarget "Search Focus Extension" */;
@@ -276,14 +208,6 @@
 					9A0B62E12B001232008D6D1B = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
-					9A0B62FD2B001233008D6D1B = {
-						CreatedOnToolsVersion = 15.0.1;
-						TestTargetID = 9A0B62E12B001232008D6D1B;
-					};
-					9A0B63072B001233008D6D1B = {
-						CreatedOnToolsVersion = 15.0.1;
-						TestTargetID = 9A0B62E12B001232008D6D1B;
-					};
 					9A0B63132B001233008D6D1B = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
@@ -303,8 +227,6 @@
 			projectRoot = "";
 			targets = (
 				9A0B62E12B001232008D6D1B /* Search Focus */,
-				9A0B62FD2B001233008D6D1B /* Search FocusTests */,
-				9A0B63072B001233008D6D1B /* Search FocusUITests */,
 				9A0B63132B001233008D6D1B /* Search Focus Extension */,
 			);
 		};
@@ -317,20 +239,6 @@
 			files = (
 				9A0B62F72B001233008D6D1B /* Assets.xcassets in Resources */,
 				9AA1B6CE2B0AB54A00A300AF /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9A0B62FC2B001233008D6D1B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9A0B63062B001233008D6D1B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,20 +273,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9A0B62FA2B001233008D6D1B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9A0B63042B001233008D6D1B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9A0B63102B001233008D6D1B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -390,16 +284,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		9A0B63002B001233008D6D1B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9A0B62E12B001232008D6D1B /* Search Focus */;
-			targetProxy = 9A0B62FF2B001233008D6D1B /* PBXContainerItemProxy */;
-		};
-		9A0B630A2B001233008D6D1B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9A0B62E12B001232008D6D1B /* Search Focus */;
-			targetProxy = 9A0B63092B001233008D6D1B /* PBXContainerItemProxy */;
-		};
 		9A0B63172B001233008D6D1B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9A0B63132B001233008D6D1B /* Search Focus Extension */;
@@ -543,8 +427,8 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 0.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -574,8 +458,8 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 0.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -610,7 +494,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 0.1;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -647,7 +531,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 0.1;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -659,78 +543,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		9A0B63382B001233008D6D1B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B2VHRNJV5H;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "tyirvine.Search-FocusTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Search Focus.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Search Focus";
-			};
-			name = Debug;
-		};
-		9A0B63392B001233008D6D1B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B2VHRNJV5H;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "tyirvine.Search-FocusTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Search Focus.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Search Focus";
-			};
-			name = Release;
-		};
-		9A0B633B2B001233008D6D1B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B2VHRNJV5H;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "tyirvine.Search-FocusUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = "Search Focus";
-			};
-			name = Debug;
-		};
-		9A0B633C2B001233008D6D1B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B2VHRNJV5H;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "tyirvine.Search-FocusUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = "Search Focus";
 			};
 			name = Release;
 		};
@@ -760,24 +572,6 @@
 			buildConfigurations = (
 				9A0B63352B001233008D6D1B /* Debug */,
 				9A0B63362B001233008D6D1B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9A0B63372B001233008D6D1B /* Build configuration list for PBXNativeTarget "Search FocusTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9A0B63382B001233008D6D1B /* Debug */,
-				9A0B63392B001233008D6D1B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9A0B633A2B001233008D6D1B /* Build configuration list for PBXNativeTarget "Search FocusUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9A0B633B2B001233008D6D1B /* Debug */,
-				9A0B633C2B001233008D6D1B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
