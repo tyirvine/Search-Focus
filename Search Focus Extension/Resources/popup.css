@@ -7,7 +7,7 @@
 }
 
 body {
-	width: 200px;
+	width: 225px;
 	padding: 10px 15px;
 	display: flex;
 	flex-direction: column;
@@ -27,6 +27,20 @@ p {
 
 label {
 	opacity: 0.8;
+}
+
+kbd {
+	background-color: #eee;
+	border-radius: 3px;
+	border: 1px solid #b4b4b4;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+	color: #333;
+	display: inline-block;
+	font-size: 0.85em;
+	font-weight: 700;
+	line-height: 1;
+	padding: 2px 4px;
+	white-space: nowrap;
 }
 
 @media (prefers-color-scheme: dark) {
