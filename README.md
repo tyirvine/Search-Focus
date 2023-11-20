@@ -16,7 +16,7 @@ Search Focus is a Safari Extension that automatically highlights the results in 
 
 <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/tyirvine/Search-Focus/total?color=bright%20green">
 
-<img alt="GitHub" src="https://img.shields.io/github/license/tyirvine/Search-Focus?color=bright%20green">
+<img alt="GitHub License" src="https://img.shields.io/github/license/tyirvine/Search-Focus?label=license&color=bright%20green">
 
 <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/tyirvine/Search-Focus?style=social">
 </div>
