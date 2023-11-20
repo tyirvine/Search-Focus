@@ -1,6 +1,6 @@
 
 <!-- Header -->
-<img src="https://github.com/tyirvine/Search-Focus/assets/39813066/e4c198d8-4037-4c01-a836-23e160b02405" width="80px" align="top"/>
+<img src="https://github.com/tyirvine/Search-Focus/assets/39813066/38de2fb3-9b34-4ed3-aeae-e8a0859cfe7d" width="80px" align="top"/>
 
 <div>
   <h1>Search Focus ⌨️</h1>
@@ -25,7 +25,7 @@ Search Focus is a Safari Extension that automatically highlights the results in 
 
 
 
-![GitHub Poster Wrapper](https://github.com/tyirvine/Search-Focus/assets/39813066/494766d8-52f4-43a3-9026-97014443a97f)
+![GitHub Poster Wrapper](https://github.com/tyirvine/Search-Focus/assets/39813066/f211d7b2-b560-46db-8831-2dcfb7228a34)
 
 
 
