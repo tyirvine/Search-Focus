@@ -344,12 +344,7 @@ function grabLinks() {
 
 	// Grab all the links on the page.
 	let nodes = document.querySelectorAll(selectors);
-	let endNode = document.querySelector(endSelector);
-
-	// Cut all the nodes away from the array after the end node.
 	let array = Array.from(nodes);
-	let endNodeIndex = array.indexOf(endNode);
-	array.splice(endNodeIndex + 1);
-
+	
 	return array;
 }

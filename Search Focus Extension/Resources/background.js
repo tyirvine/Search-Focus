@@ -19,7 +19,7 @@ async function initialize() {
 
 	// Initialize the settings if they're empty.
 	let settingsInStorage = (await browser.storage.local.get('settings')).settings;
-	if (Object.keys(settingsInStorage).length === 0) {
+	if (typeof settingsInStorage === 'undefined' || Object.keys(settingsInStorage).length === 0) {
 		await browser.storage.local.set({ settings });
 	}
 }

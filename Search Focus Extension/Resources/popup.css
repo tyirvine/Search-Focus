@@ -52,8 +52,7 @@ kbd {
 button {
 	font-size: 13px;
 	font-weight: 500;
-	color: transparent;
-	text-shadow: 0 0 0 white;
+	color: white;
 	padding: 10px;
 	border-radius: 6px;
 	border: 1px solid rgba(42, 108, 169, 0.675);
